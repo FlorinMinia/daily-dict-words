@@ -29,4 +29,4 @@ jobs:
       - name: Build and Run Container
         run: |
           docker build -t dexonline-word:latest .
-          docker run -rm dexonline-word:latest
+          docker run --rm dexonline-word:latest
