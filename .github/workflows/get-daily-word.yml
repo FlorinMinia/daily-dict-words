@@ -18,7 +18,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
         
-      - name: Run Container
+      - name: Build and Run Container
         run: |
           docker build -t dexonline-word:latest .
           docker run --rm dexonline-word:latest
