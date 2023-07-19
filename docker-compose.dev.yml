@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  daily-dict:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: daily-dict
+    volumes:
+      - ./app:/app/
+      - /app/node_modules
+    command: "sleep infinity"
