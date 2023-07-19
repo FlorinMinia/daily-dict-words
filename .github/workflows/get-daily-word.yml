@@ -18,14 +18,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
         
-      - name: Build image
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          platforms: linux/amd64
-          push: false
-          tags: dexonline-word:latest
-
       - name: Run Container
         run: |
+          docker build -t dexonline-word:latest .
           docker run --rm dexonline-word:latest
