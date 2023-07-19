@@ -1,0 +1,21 @@
+name: Get daily word from dexonline.ro
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+
+jobs:
+  get-daily-dexonline-word:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: docker/setup-docker@v1
+
+      - name: Build and Run Container
+        run: |
+          docker build -t dexonline-word .
+          docker run dexonline-word
