@@ -26,6 +26,6 @@ jobs:
       - name: Commit updates
         run: |
           git config --global user.name "Florin Minia"
-          git config --global user.email "${{secrets.SSH_KEY_FOR_WEB_APP}}""
+          git config --global user.email "${{secrets.EMAIL}}""
           git commit -am "New word added"
           git push
