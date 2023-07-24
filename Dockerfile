@@ -8,4 +8,4 @@ RUN npm install
 
 COPY ./app .
 
-ENTRYPOINT ["node", "index.js"] 
+CMD ["node", "index.js"] 

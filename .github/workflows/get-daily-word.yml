@@ -21,4 +21,10 @@ jobs:
       - name: Build and Run Container
         run: |
           docker build -t dexonline-word:latest .
-          docker run --rm dexonline-word:latest
+          docker run -v ${dir}/index.html:/site/index.html --rm dexonline-word:latest
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Page update'
+          add: '*.html'
