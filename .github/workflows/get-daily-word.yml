@@ -2,7 +2,7 @@ name: Get daily word from dexonline.ro
 
 on:
   schedule:
-    - cron: '5 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   get-daily-dexonline-word:
