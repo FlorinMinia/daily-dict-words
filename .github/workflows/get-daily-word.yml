@@ -2,7 +2,7 @@ name: Get daily word from dexonline.ro
 
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '5 * * * *'
 
 jobs:
   get-daily-dexonline-word:
@@ -18,11 +18,16 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
         
-      - name: Build and Run Container
+      - name: Build Container
         run: |
           docker build -t dexonline-word:latest .
-          docker run -v ${dir}/index.html:/site/index.html --rm dexonline-word:latest
-
+        
+      - name: Run Container
+        uses: docker://dexonline-word:latest
+        with:
+          args: >-
+            -v ${{ github.workspace }}/index.html:/site/index.html
+       
       - name: Commit updates
         run: |
           git config --global user.name "Florin Minia"
